@@ -80,7 +80,7 @@ export default function ResumeUploader({ onParsed }) {
               </>
             )}
           </div>
-          {error && <p className="mt-3 text-sm text-rose-500">{error}</p>}
+          {error && <p className="mt-3 text-sm text-rose-500">{error?.message || JSON.stringify(error)}</p>}
         </div>
       ) : (
         <motion.div

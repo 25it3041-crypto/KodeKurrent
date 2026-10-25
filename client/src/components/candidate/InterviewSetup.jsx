@@ -311,7 +311,7 @@ function FormField({ label, icon, error, children }) {
         <span className="text-indigo-500">{icon}</span>{label}
       </label>
       {children}
-      {error && <p className="mt-1 text-xs text-rose-500 font-medium">{error}</p>}
+      {error && <p className="mt-1 text-xs text-rose-500 font-medium">{error?.message || JSON.stringify(error)}</p>}
     </div>
   );
 }

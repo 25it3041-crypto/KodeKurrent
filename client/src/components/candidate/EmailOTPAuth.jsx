@@ -189,7 +189,7 @@ export default function EmailOTPAuth({ onVerified }) {
                       autoFocus
                     />
                   </div>
-                  {error && <ErrorMsg msg={error} />}
+                  {error && <ErrorMsg msg={error?.message || JSON.stringify(error)}/>}
                   <motion.button
                     type="submit"
                     disabled={loading || !email.trim()}
@@ -252,7 +252,7 @@ export default function EmailOTPAuth({ onVerified }) {
                   ))}
                 </div>
 
-                {error && <ErrorMsg msg={error} />}
+                {error && <ErrorMsg msg={error?.message || JSON.stringify(error)}/>}
 
                 <motion.button
                   onClick={() => handleVerifyOTP()}

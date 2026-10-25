@@ -154,7 +154,7 @@ export default function OnboardingScreen() {
           </div>
         </Card>
 
-        {error && <p className="text-sm text-rose-500">{error}</p>}
+        {error && <p className="text-sm text-rose-500">{error?.message || JSON.stringify(error)}</p>}
 
         <motion.button
           whileHover={{ scale: 1.01 }}
