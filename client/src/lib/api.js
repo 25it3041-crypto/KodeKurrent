@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// Automatically target Vercel /api routes or fallback to local development
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
 
 const api = axios.create({
@@ -8,9 +7,9 @@ const api = axios.create({
   timeout: 30000,
 });
 
-// OTP Authentication
-export const sendOTP = (email) => api.post('/send-otp', { email });
-export const verifyOTP = (email, otp) => api.post('/verify-otp', { email, otp });
+// Dummy bypass functions so no missing import errors occur
+export const sendOTP = async (email) => ({ data: { success: true, message: "Bypassed successfully" } });
+export const verifyOTP = async (email, otp) => ({ data: { success: true, token: "mock-token-bypass" } });
 
 export const parseResume = (formData) => api.post('/parse-resume', formData, {
   headers: { 'Content-Type': 'multipart/form-data' },
