@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Explicitly target backend server running on port 5000
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+// Automatically target Vercel /api routes or fallback to local development
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -27,4 +27,4 @@ export const overrideScore = (id, data) => api.patch(`/candidates/${id}/score`, 
 export const createSession = (data) => api.post('/session/create', data);
 export const getSession = (id) => api.get(`/session/${id}`);
 
-export default api;
+export default api;git add .
