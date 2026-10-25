@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --canvas: #F8FAFC;
+    --card: #FFFFFF;
+    --border: #E2E8F0;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --indigo: #6366F1;
+    --violet: #8B5CF6;
+    --emerald: #10B981;
+    --rose: #F43F5E;
+    --amber: #F59E0B;
+  }
+  
+  html, body, #root {
+    height: 100%;
+    background: var(--canvas);
+    color: var(--text-primary);
+  }
+
+  * { box-sizing: border-box; }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #F1F5F9; }
+  ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(226,232,240,0.8);
+  }
+
+  .gradient-indigo {
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+  }
+
+  .gradient-canvas {
+    background: linear-gradient(135deg, #F8FAFC 0%, #EEF2FF 50%, #F5F3FF 100%);
+  }
+
+  .card-shadow {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(99,102,241,0.06);
+  }
+
+  .card-shadow-lg {
+    box-shadow: 0 4px 24px rgba(99,102,241,0.10), 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  .pulse-ring {
+    animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  }
+  
+  .recording-dot {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(99,102,241,0.4); }
+    70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(99,102,241,0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(99,102,241,0); }
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+}
