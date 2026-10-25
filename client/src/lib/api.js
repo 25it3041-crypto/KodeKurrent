@@ -27,4 +27,4 @@ export const overrideScore = (id, data) => api.patch(`/candidates/${id}/score`, 
 export const createSession = (data) => api.post('/session/create', data);
 export const getSession = (id) => api.get(`/session/${id}`);
 
-export default api;git add .
+export default api;
